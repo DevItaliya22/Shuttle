@@ -1,9 +1,28 @@
 {
-  "name": "Shuttle",
+  "name": "shuttle",
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:server": "turbo run build --filter=server",
+    "build:admin": "turbo run build --filter=admin",
+    "build:driver": "turbo run build --filter=driver",
+    "build:frontdesk": "turbo run build --filter=frontdesk",
+    "build:guest": "turbo run build --filter=guest",
+
     "dev": "turbo run dev",
+    "dev:server": "turbo run dev --filter=server",
+    "dev:admin": "turbo run dev --filter=admin,server",
+    "dev:driver": "turbo run dev --filter=driver,server",
+    "dev:frontdesk": "turbo run dev --filter=frontdesk,server",
+    "dev:guest": "turbo run dev --filter=guest,server",
+
+    "start": "turbo run start",
+    "start:server": "turbo run start --filter=server",
+    "start:admin": "turbo run start --filter=admin,server",
+    "start:driver": "turbo run start --filter=driver,server",
+    "start:frontdesk": "turbo run start --filter=frontdesk,server",
+    "start:guest": "turbo run start --filter=guest,server",
+    
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
@@ -20,5 +39,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
